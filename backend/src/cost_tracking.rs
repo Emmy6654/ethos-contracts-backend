@@ -51,6 +51,7 @@ pub struct CostEntry {
 
 /// Request body for `POST /admin/cost/entries`.
 #[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct RecordCostRequest {
     pub operation: String,
     #[serde(default)]
@@ -76,6 +77,7 @@ pub struct CostReport {
 
 /// Request body for `POST /admin/cost/allocate`.
 #[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct AllocateCostRequest {
     /// The shared cost amount to split up.
     pub total_amount: Decimal,
@@ -124,6 +126,7 @@ pub struct BudgetThreshold {
 
 /// Request body for `POST /admin/cost/budget-thresholds`.
 #[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct SetBudgetThresholdRequest {
     pub category: String,
     pub scope: BudgetScope,
@@ -166,6 +169,7 @@ pub struct GasCostEntry {
 
 /// Request body for `POST /admin/cost/gas`.
 #[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct RecordGasCostRequest {
     pub operation: String,
     pub tx_hash: String,
