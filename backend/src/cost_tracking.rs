@@ -874,10 +874,6 @@ mod tests {
         assert!(allocation.allocations.is_empty());
     }
 
-    // ── Gas tracking tests ────────────────────────────────────────────────
-
-    fn gas_entry(operation: &str, fee_stroops: u64, ledger: u64) -> GasCostEntry {
-        GasCostEntry {
     #[test]
     fn decimal_cost_totals_and_budget_boundaries_are_exact() {
         let state = CostState::new();
@@ -900,6 +896,10 @@ mod tests {
         );
     }
 
+    // ── Gas tracking tests ────────────────────────────────────────────────
+
+    fn gas_entry(operation: &str, fee_stroops: u64, ledger: u64) -> GasCostEntry {
+        GasCostEntry {
             id: Uuid::new_v4().to_string(),
             operation: operation.to_string(),
             tx_hash: format!("txhash-{}", Uuid::new_v4()),
